@@ -23,6 +23,8 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render(
             "index.html",
+            header_text = "Header goes here",
+            footer_text = "Footer goes here",
         )
 
 if __name__ == "__main__":
