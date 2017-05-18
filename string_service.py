@@ -16,14 +16,14 @@ class WrapHandler(tornado.web.RequestHandler):
     def post(self):
         text = self.get_argument('text')
         width = self.get_argument('width', 40)
-        self.write(textwarp.fill(text, int(width)))
+        self.write(textwrap.fill(text, int(width)))
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     app = tornado.web.Application(
         handlers=[
             (r"/reverse/(\w+)", ReverseHandler),
-            (r"/warp", WrapHandler)
+            (r"/wrap", WrapHandler)
         ]
     )
     http_server = tornado.httpserver.HTTPServer(app)
