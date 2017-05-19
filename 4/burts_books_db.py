@@ -37,7 +37,7 @@ class MainHandler(tornado.web.RequestHandler):
 class RecommendedHandler(tornado.web.RequestHandler):
     def get(self):
         sql = "SELECT * FROM book"
-        books = self.db.query(sql)
+        books = self.application.db.query(sql)
         self.render(
             "recommended.html",
             page_title = "Burt's Books | Recommended Reading",
